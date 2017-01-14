@@ -3,7 +3,7 @@ import java.lang.Math;
 public class Point {
 
   public static void main(String[] args) {
-    System.out.println(distance(5,4));
+    System.out.println(distance(5,0));
   }
 
   public static double distance(int a, int b)
