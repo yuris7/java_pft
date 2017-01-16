@@ -7,6 +7,7 @@ public class SessionHelper {
   private FirefoxDriver wd;
 
   public SessionHelper(FirefoxDriver wd) {
+
     this.wd = wd;
   }
   public void login(String username, String password) {
