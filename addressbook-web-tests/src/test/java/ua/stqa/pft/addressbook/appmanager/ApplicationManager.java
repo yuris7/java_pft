@@ -21,6 +21,7 @@ public class ApplicationManager {
       return false;
     }
   }
+
   public void init() {
     String pathToGeckoDriver = Paths.get("./geckodriver.exe").toAbsolutePath().toString();
     System.setProperty("webdriver.gecko.driver", pathToGeckoDriver);
@@ -34,7 +35,6 @@ public class ApplicationManager {
   }
 
 
-
   public void stop() {
     wd.quit();
   }
@@ -45,6 +45,7 @@ public class ApplicationManager {
   }
 
   public NavigationHelper getNavigationHelper() {
+
     return navigationHelper;
   }
 }

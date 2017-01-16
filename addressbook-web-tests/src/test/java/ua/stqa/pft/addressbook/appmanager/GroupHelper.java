@@ -8,6 +8,7 @@ public class GroupHelper {
   private FirefoxDriver wd;
 
   public GroupHelper(FirefoxDriver wd) {
+
     this.wd = wd;
   }
 
@@ -34,14 +35,17 @@ public class GroupHelper {
   }
 
   public void initGroupCreation() {
+
     wd.findElement(By.name("new")).click();
   }
 
   public void deleteSelectedGroups() {
+
     wd.findElement(By.name("delete")).click();
   }
 
   public void selectGroup() {
+
     wd.findElement(By.name("selected[]")).click();
   }
 }
