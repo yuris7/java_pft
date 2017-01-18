@@ -17,7 +17,7 @@ public class ContactHelper {
     }
 
   public void fillContactForm(ContactData contactData) {
-      wd.findElement(By.name("firstname")).click();
+      wd.findElement(By.xpath("firstname")).click();
       wd.findElement(By.name("firstname")).clear();
       wd.findElement(By.name("firstname")).sendKeys(contactData.getName());
       wd.findElement(By.name("lastname")).click();

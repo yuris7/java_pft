@@ -1,8 +1,6 @@
 package ua.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
@@ -13,15 +11,6 @@ public class ApplicationManager {
   private GroupHelper groupHelper;
   private SessionHelper sessionHelper;
   private ContactHelper contactHelper;
-
-  public static boolean isAlertPresent(FirefoxDriver wd) {
-    try {
-      wd.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
 
   public void init() {
     String pathToGeckoDriver = Paths.get("./geckodriver.exe").toAbsolutePath().toString();
