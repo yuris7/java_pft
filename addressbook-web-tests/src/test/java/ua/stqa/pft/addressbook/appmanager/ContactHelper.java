@@ -1,34 +1,42 @@
 package ua.stqa.pft.addressbook.appmanager;
 
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.By;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebDriver;
 import ua.stqa.pft.addressbook.model.ContactData;
 
-public class ContactHelper {
-  private FirefoxDriver wd;
+public class ContactHelper extends HelperBase{
 
-  public ContactHelper(FirefoxDriver wd) {
+  public ContactHelper(WebDriver wd) {
 
-    this.wd = wd;
+    super(wd);
   }
 
-  public void submitContactCreation() {
-      wd.findElement(By.name("submit")).click();
+  public void initContactCreation() {
+
+    click(By.linkText("add new"));
     }
 
   public void fillContactForm(ContactData contactData) {
-      wd.findElement(By.xpath("firstname")).click();
-      wd.findElement(By.name("firstname")).clear();
-      wd.findElement(By.name("firstname")).sendKeys(contactData.getName());
-      wd.findElement(By.name("lastname")).click();
-      wd.findElement(By.name("lastname")).clear();
-      wd.findElement(By.name("lastname")).sendKeys(contactData.getLast_name());
-      wd.findElement(By.name("home")).click();
-      wd.findElement(By.name("home")).clear();
-      wd.findElement(By.name("home")).sendKeys(contactData.getHome_number());
-    }
+      type(By.name("firstname"),contactData.getName());
+      type(By.name("lastname"),contactData.getLast_name());
 
-  public void openContactCreationPage() {
-      wd.get("http://localhost/addressbook/edit.php");
-    }
+    
+      new Select(wd.findElement(By.name("new group"))).selectByVisibleText(contactData.getGroup());
+
+  }
+
+  public void submitContactCreation() {
+    click(By.name("submit"));
+  }
+  public void returnHomePage() {
+    click(By.linkText("home page"));
+  }
+
+  public void initContactModification() {
+    click(By.cssSelector("img[alt='Edit']"));
+  }
+  public void submitContactModification() {
+    click(By.name("update"));
+  }
 }
