@@ -23,8 +23,6 @@ public class ApplicationManager{
     this.browser = browser;
   }
   public void init() {
-//     String pathToGeckoDriver = Paths.get("./geckodriver.exe").toAbsolutePath().toString();
-//     System.setProperty("webdriver.gecko.driver", pathToGeckoDriver);
     if (browser.equals(BrowserType.FIREFOX)){
       wd = new FirefoxDriver();
     } else if (browser.equals(BrowserType.CHROME)){
@@ -33,7 +31,7 @@ public class ApplicationManager{
       wd = new InternetExplorerDriver();
     }
     wd = new FirefoxDriver();
-    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook");
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
