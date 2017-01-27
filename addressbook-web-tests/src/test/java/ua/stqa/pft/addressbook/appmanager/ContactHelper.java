@@ -19,14 +19,16 @@ public class ContactHelper extends HelperBase{
     click(By.linkText("add new"));
     }
 
+
+
   public void fillContactForm(ContactData contactData, boolean creation) {
       type(By.name("firstname"),contactData.getName());
       type(By.name("lastname"),contactData.getLast_name());
 
        if (creation){
-         new Select(wd.findElement(By.name("new group"))).selectByVisibleText(contactData.getGroup());
+         new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
        }else
-         Assert.assertFalse(isElementpresent(By.name("new group")));{
+         Assert.assertFalse(isElementpresent(By.name("new_group")));{
 
       }
 
@@ -45,4 +47,9 @@ public class ContactHelper extends HelperBase{
   public void submitContactModification() {
     click(By.name("update"));
   }
-}
+
+  public int getContactCount() {
+      return wd.findElements(By.name("selected[]")).size();
+    }
+  }
+

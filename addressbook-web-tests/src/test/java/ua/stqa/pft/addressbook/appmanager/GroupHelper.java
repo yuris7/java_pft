@@ -2,7 +2,6 @@ package ua.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import ua.stqa.pft.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase{
@@ -44,10 +43,17 @@ public class GroupHelper extends HelperBase{
   }
 
   public void initGroupModification() {
+
     click(By.name("edit"));
   }
 
   public void submitGroupModification() {
+
     click(By.name("update"));
   }
+
+  public int getGroupCount() {
+    return wd.findElements(By.name("selected[]")).size();
+  }
+
 }
