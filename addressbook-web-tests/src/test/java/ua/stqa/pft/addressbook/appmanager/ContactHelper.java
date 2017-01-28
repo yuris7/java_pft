@@ -28,9 +28,7 @@ public class ContactHelper extends HelperBase{
        if (creation){
          new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
        }else
-         Assert.assertFalse(isElementpresent(By.name("new_group")));{
-
-      }
+         Assert.assertFalse(isElementpresent(By.name("new_group")));
 
   }
 

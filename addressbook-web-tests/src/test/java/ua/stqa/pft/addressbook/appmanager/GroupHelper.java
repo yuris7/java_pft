@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ua.stqa.pft.addressbook.model.GroupData;
 
+
 public class GroupHelper extends HelperBase{
 
   public GroupHelper(WebDriver wd) {
@@ -33,8 +34,13 @@ public class GroupHelper extends HelperBase{
   }
 
   public void deleteSelectedGroups() {
+    if (! isElementpresent(By.name("selected[]"))) {
+      initGroupCreation();
+      fillGroupForm(new GroupData("test35", "test20", "test38"));
+      submitGroupCreation();
 
-    click(By.name("delete"));
+  }else
+      click(By.name("delete"));
   }
 
   public void selectGroup() {
