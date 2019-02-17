@@ -25,10 +25,10 @@ public class ContactHelper extends HelperBase{
       type(By.name("firstname"),contactData.getName());
       type(By.name("lastname"),contactData.getLast_name());
 
-       if (creation){
-         new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
-       }else
-         Assert.assertFalse(isElementpresent(By.name("new_group")));
+//       if (creation){
+//         new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+//       }else
+//         Assert.assertFalse(isElementpresent(By.name("new_group")));
 
   }
 

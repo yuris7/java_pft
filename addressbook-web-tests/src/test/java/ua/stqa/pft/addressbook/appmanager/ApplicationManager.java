@@ -30,7 +30,7 @@ public class ApplicationManager{
     } else if (Objects.equals(browser, BrowserType.IE)){
       wd = new InternetExplorerDriver();
     }
-    wd = new FirefoxDriver();
+    wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook");
     groupHelper = new GroupHelper(wd);
